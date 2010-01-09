@@ -1,0 +1,7 @@
+* CHANGES
+* README
+* MANIFEST
+* Rakefile
+* enumerable-extra.gemspec
+* lib/enumerable/extra
+* test/test_enumerable_extra.rb

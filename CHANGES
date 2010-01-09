@@ -1,0 +1,16 @@
+== 0.1.2 - 27-Sep-2009 
+* Some gemspec udpates.
+* Added the :gem Rake task.
+* Minor doc updates.
+* Renamed test file to test_enumerable_extra.rb.
+
+== 0.1.1 - 18-Jul-2009
+* Added 1.9.x compatibility. Note that Enumerator objects are explicitly
+  converted back to arrays to match the 1.8.x behavior.
+* Changed license to Artistic 2.0, and added it explictly to the gemspec.
+* Removed the required_ruby_version from the gemspec since it's now
+  compatible.
+* Updated the README, including a missing warranty disclaimer (whoops).
+
+== 0.1.0 - 14-May-2009
+* Initial release
