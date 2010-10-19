@@ -1,6 +1,12 @@
 require 'rake'
 require 'rake/testtask'
 
+desc "Remove any gem or rbc (Rubinius) files"
+task :clean do
+  Dir['*.gem'].each{ |f| File.delete(f) }
+  Dir['**/*.rbc'].each{ |f| File.delete(f) }
+end
+
 desc "Install the enumerable-extra library (non-gem)"
 task :install do
   dest = File.join(Config::CONFIG['sitelibdir'], 'enumerable')
@@ -8,16 +14,18 @@ task :install do
   cp 'lib/enumerable/extra.rb', dest, :verbose => true
 end
 
-desc 'Build the enumerable-extra gem'
-task :gem do
-  spec = eval(IO.read('enumerable-extra.gemspec'))
-  Gem::Builder.new(spec).build
-end
+namespace :gem do
+  desc 'Build the enumerable-extra gem'
+  task :create => [:clean] do
+    spec = eval(IO.read('enumerable-extra.gemspec'))
+    Gem::Builder.new(spec).build
+  end
 
-desc "Install the enumerable-extra library as a gem"
-task :install_gem => [:gem] do
-  file = Dir["*.gem"].first
-  sh "gem install #{file}"
+  desc "Install the enumerable-extra library as a gem"
+  task :install => [:create] do
+    file = Dir["*.gem"].first
+    sh "gem install #{file}"
+  end
 end
 
 Rake::TestTask.new do |t|
