@@ -124,13 +124,15 @@ class Array
     self.replace(map(method, *args, &block))
   end
 
-  def each(other = nil, &block)
-    if other.nil?
+  # Iterates over each element in the array, yielding the result. When no
+  # arguments are provided this behaves as the standard Array#each. With
+  # arguments it behaves the same as Array#zip.
+  #
+  def each(*others, &block)
+    if others.nil? || others.empty?
       old_each(&block)
     else
-      each_with_index{ |a, i|
-        yield a, other[i]
-      }
+      zip(*others, &block)
     end
   end   
 
