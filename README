@@ -3,8 +3,7 @@
    to make list comprehensions a little bit easier and prettier in Ruby.
 
 = Installation
-   rake test (optional)
-   rake install (non-gem) OR rake install_gem (gem)
+   gem install enumerable-extra
 
 = Synopsis
    require 'enumerable/extra'
@@ -58,4 +57,3 @@
 
 = Author
    Daniel J. Berger
-   djberg96 at nospam at gmail dot com
