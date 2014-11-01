@@ -2,17 +2,16 @@ require 'rubygems'
 
 Gem::Specification.new do |s|
   s.name      = 'enumerable-extra'
-  s.version   = '0.1.2'
+  s.version   = '0.2.0'
   s.license   = 'Artistic 2.0' 
   s.summary   = 'Enhanced methods for Enumerable objects'
   s.author    = 'Daniel Berger'
   s.email     = 'djberg96@gmail.com'
-  s.homepage  = 'http://www.rubyforge.org/projects/shards'
-  s.files     = Dir['**/*'].reject{ |f| f.include?('CVS') }
+  s.homepage  = 'https://github.com/djberg96/enumerable-extra'
+  s.files     = Dir['**/*'].reject{ |f| f.include?('git') }
   s.test_file = 'test/test_enumerable_extra.rb'
   s.has_rdoc  = true
 
-  s.rubyforge_project = 'shards'
   s.extra_rdoc_files  = ['README', 'CHANGES', 'MANIFEST']
   
   s.description = <<-EOF
