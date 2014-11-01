@@ -1,30 +1,25 @@
 require 'rake'
 require 'rake/testtask'
+require 'rake/clean'
 
-desc "Remove any gem or rbc (Rubinius) files"
-task :clean do
-  Dir['*.gem'].each{ |f| File.delete(f) }
-  Dir['**/*.rbc'].each{ |f| File.delete(f) }
-end
-
-desc "Install the enumerable-extra library (non-gem)"
-task :install do
-  dest = File.join(Config::CONFIG['sitelibdir'], 'enumerable')
-  Dir.mkdir(dest) unless File.exists? dest
-  cp 'lib/enumerable/extra.rb', dest, :verbose => true
-end
+CLEAN.include("*.gem", "*.rbc")
 
 namespace :gem do
   desc 'Build the enumerable-extra gem'
   task :create => [:clean] do
     spec = eval(IO.read('enumerable-extra.gemspec'))
-    Gem::Builder.new(spec).build
+    if Gem::VERSION < "2.0"
+      Gem::Builder.new(spec).build
+    else
+      require 'rubygems/package'
+      Gem::Package.build(spec)
+    end
   end
 
   desc "Install the enumerable-extra library as a gem"
   task :install => [:create] do
     file = Dir["*.gem"].first
-    sh "gem install #{file}"
+    sh "gem install -l #{file}"
   end
 end
 
