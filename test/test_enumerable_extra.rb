@@ -4,10 +4,7 @@
 # Test case for the enumerable-extra library. You should run this
 # test via the 'rake test' task.
 ########################################################################
-require 'rubygems'
-gem 'test-unit'
-
-require 'test/unit'
+require 'test-unit'
 require 'enumerable/extra'
 
 class TC_Enumerable_Extra < Test::Unit::TestCase
@@ -60,7 +57,7 @@ class TC_Enumerable_Extra < Test::Unit::TestCase
     assert_nothing_raised{ @words.map{} }
     assert_nothing_raised{ @words.map{ |e| @array << e } }
     assert_equal(%w/foo bar baz/, @array)
-      
+
     @array = []
     assert_nothing_raised{ @words.map(:upcase){ |e| @array << e } }
     assert_equal(%w/FOO BAR BAZ/, @array)
@@ -73,8 +70,9 @@ class TC_Enumerable_Extra < Test::Unit::TestCase
 
   test "each accepts arguments" do
     a1 = [1,2,3]
-    a2 = [4,5,6]   
+    a2 = [4,5,6]
     assert_nothing_raised{ a1.each(a2){} }
+    assert_equal([[1,4],[2,5],[3,6]], a1.each(a2))
   end
 
   test "each defaults to using the old behavior if no arguments are passed" do
