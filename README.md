@@ -6,18 +6,20 @@ This library includes modified versions of the Enumerable methods, designed
 to make list comprehensions a little bit easier and prettier in Ruby.
 
 ## Installation
-  gem install enumerable-extra
+`gem install enumerable-extra`
 
 ## Synopsis
-  require 'enumerable/extra'
+```ruby
+require 'enumerable/extra'
 
-  array = %w[foo bar baz]
+array = %w[foo bar baz]
 
-  array.map(:upcase) => ['FOO', 'BAR', 'BAZ']
-  array.map(:+, 'A') => ['fooA', 'barA', 'bazA']
+array.map(:upcase) => ['FOO', 'BAR', 'BAZ']
+array.map(:+, 'A') => ['fooA', 'barA', 'bazA']
 
-  numbers = [1,2,3]
-  numbers.sum => 6
+numbers = [1,2,3]
+numbers.sum => 6
+```
 
 ## Motivation
 This library was created in reaction to the ugly "&" (or worse, "&its")
