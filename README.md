@@ -49,6 +49,10 @@ you still can't do the equivalent of [1,2,3].map(:+, 1), for example.
   latter for close to two now. This is in addition to many blogs I read that
   occasionally touch on the subject.
 
+Update 2: Whatever my original motivation was originally it simply didn't hold
+up. The community embraced Symbol#to_proc, and the core language made some
+updates as well, rendering this library pointless.
+
 ## Future Plans
 None. This library is deprecated, and the repository has been archived.
 

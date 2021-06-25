@@ -3,7 +3,7 @@ require 'rubygems'
 Gem::Specification.new do |s|
   s.name      = 'enumerable-extra'
   s.version   = '0.2.0'
-  s.license   = 'Artistic 2.0' 
+  s.license   = 'Artistic-2.0' 
   s.summary   = 'Enhanced methods for Enumerable objects'
   s.author    = 'Daniel Berger'
   s.email     = 'djberg96@gmail.com'
@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.test_file = 'test/test_enumerable_extra.rb'
   s.has_rdoc  = true
 
-  s.extra_rdoc_files  = ['README', 'CHANGES', 'MANIFEST']
+  s.extra_rdoc_files  = ['README.md', 'CHANGES', 'MANIFEST']
   
   s.description = <<-EOF
      The enumerable-extra library provides overridden Enumerable methods
